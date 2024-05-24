@@ -18,6 +18,10 @@ public abstract class BasePage {
     protected abstract By getPageIdentifier();
 
     public boolean isPageOpened() {
-        return driver.findElement(getPageIdentifier()).isDisplayed();
+        return waitsService.waitForExists(getPageIdentifier()).isDisplayed();
+    }
+
+    public void openPageByUrl(String pagePath) {
+        driver.get(ReadProperties.getUrl() + pagePath);
     }
 }
