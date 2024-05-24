@@ -2,8 +2,6 @@ package steps;
 
 import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
-import pages.CatalogPage;
-import pages.HomePage;
 
 public class HomeStep extends BaseStep {
 

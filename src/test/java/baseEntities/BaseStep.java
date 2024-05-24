@@ -2,9 +2,6 @@ package baseEntities;
 
 import org.openqa.selenium.WebDriver;
 import pages.BasketPage;
-import pages.CatalogPage;
-import pages.HomePage;
-import pages.ProductPage;
 
 public class BaseStep {
     protected WebDriver driver;
