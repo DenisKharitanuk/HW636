@@ -16,6 +16,7 @@ public abstract class BasePage {
         waitsService = new WaitsService(driver, Duration.ofSeconds(ReadProperties.timeout()));
     }
     protected abstract By getPageIdentifier();
+    public abstract void openPageByUrl();
 
     public boolean isPageOpened() {
         return waitsService.waitForExists(getPageIdentifier()).isDisplayed();
@@ -24,4 +25,6 @@ public abstract class BasePage {
     public void openPageByUrl(String pagePath) {
         driver.get(ReadProperties.getUrl() + pagePath);
     }
+
+
 }

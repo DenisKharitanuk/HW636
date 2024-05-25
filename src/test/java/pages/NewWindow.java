@@ -5,19 +5,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class FramesPage extends BasePage {
+public class NewWindow extends BasePage {
 
-    private final static String pagePath = "/frames";
+    private final static String pagePath = "/windows/new";
+    private By pageMessageTextLocator = By.xpath("//div/h3");
 
-    private By iFrameLocator = By.xpath("//a[@href='/iframe']");
-
-    public FramesPage(WebDriver driver) {
+    public NewWindow(WebDriver driver) {
         super(driver);
     }
 
     @Override
     protected By getPageIdentifier() {
-        return iFrameLocator;
+        return null;
     }
 
     @Override
@@ -25,7 +24,7 @@ public class FramesPage extends BasePage {
         super.openPageByUrl(pagePath);
     }
 
-    public WebElement getIFrameLocator(){
-        return waitsService.waitForExists(iFrameLocator);
+    public WebElement getPageMessageTextLocator() {
+        return waitsService.waitForExists(pageMessageTextLocator);
     }
 }
