@@ -5,12 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class NewWindow extends BasePage {
+public class NewWindowPage extends BasePage {
 
     private final static String pagePath = "/windows/new";
     private By pageMessageTextLocator = By.xpath("//div/h3");
 
-    public NewWindow(WebDriver driver) {
+    public NewWindowPage(WebDriver driver) {
         super(driver);
     }
 

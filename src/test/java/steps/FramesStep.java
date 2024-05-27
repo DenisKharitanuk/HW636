@@ -11,4 +11,6 @@ public class FramesStep extends BaseStep {
     public void openFramePage(){
         framesPage.openPageByUrl();
     }
+
+
 }

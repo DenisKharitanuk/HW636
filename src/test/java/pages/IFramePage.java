@@ -5,13 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class iFramePage extends BasePage {
+public class IFramePage extends BasePage {
     private final static String pagePath = "/iframe";
     private By boldButtonLocator = By.xpath("//button[@aria-label='Bold']");
     private By startInputTextLocator = By.id("tinymce");
 
 
-    public iFramePage(WebDriver driver) {
+    public IFramePage(WebDriver driver) {
         super(driver);
     }
 
