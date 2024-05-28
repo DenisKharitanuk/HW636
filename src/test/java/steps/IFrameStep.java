@@ -14,7 +14,6 @@ public class IFrameStep extends BaseStep {
         driver.switchTo().frame("mce_0_ifr");
         iFramesPage.getTinymceLocator().click();
         iFramesPage.getTinymceLocator().sendKeys(text);
-        iFramesPage.getStartInputTextLocator().sendKeys(text);
         driver.switchTo().defaultContent();
     }
 }
