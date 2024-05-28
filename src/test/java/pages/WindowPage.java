@@ -9,6 +9,7 @@ public class WindowPage extends BasePage {
     private final static String pagePath = "/windows";
 
     private By clickHereButtonLocator = By.xpath("//a[@href=\"/windows/new\"]");
+    private String originalWindow;
 
     public WindowPage(WebDriver driver) {
         super(driver);
@@ -26,5 +27,12 @@ public class WindowPage extends BasePage {
 
     public WebElement getClickHereButtonLocator() {
         return waitsService.waitForVisibilityLocatedBy(clickHereButtonLocator);
+    }
+    public String getOriginalWindow(){
+        return originalWindow;
+    }
+
+    public void setOriginalWindow(String originalWindow) {
+        this.originalWindow = originalWindow;
     }
 }

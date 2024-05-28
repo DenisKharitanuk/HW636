@@ -8,8 +8,8 @@ import org.openqa.selenium.WebElement;
 public class IFramePage extends BasePage {
     private final static String pagePath = "/iframe";
     private By boldButtonLocator = By.xpath("//button[@aria-label='Bold']");
-    private By startInputTextLocator = By.id("tinymce");
-
+    private By iFrameLocator = By.xpath("//IFrame");
+    private By tinymceLocator= By.id("tinymce");
 
     public IFramePage(WebDriver driver) {
         super(driver);
@@ -17,7 +17,7 @@ public class IFramePage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return startInputTextLocator ;
+        return iFrameLocator ;
     }
 
     @Override
@@ -30,6 +30,9 @@ public class IFramePage extends BasePage {
     }
 
     public WebElement getStartInputTextLocator(){
-        return waitsService.waitForClickable(startInputTextLocator);
+        return waitsService.waitForClickable(iFrameLocator);
+    }
+    public WebElement getTinymceLocator(){
+        return waitsService.waitForClickable(tinymceLocator);
     }
 }

@@ -30,7 +30,6 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation("io.github.bonigarcia:webdrivermanager:5.8.0")
     implementation 'org.seleniumhq.selenium:selenium-java:4.21.0'
-
 }
 
 test {

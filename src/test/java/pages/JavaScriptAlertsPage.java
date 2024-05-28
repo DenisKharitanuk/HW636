@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class JavaScriptAlerts extends BasePage {
+public class JavaScriptAlertsPage extends BasePage {
 
     private final static String pagePath = "/javascript_alerts";
 
@@ -14,7 +14,7 @@ public class JavaScriptAlerts extends BasePage {
     private By clickForJSPromptLocator = By.xpath("//button[@onclick='jsPrompt()']");
 
 
-    public JavaScriptAlerts(WebDriver driver) {
+    public JavaScriptAlertsPage(WebDriver driver) {
         super(driver);
     }
 

@@ -8,8 +8,8 @@ public class BaseStep {
 
     protected FramesPage framesPage;
     protected IFramePage iFramesPage;
-    protected JavaScriptAlerts javaScriptAlerts;
-    protected NewWindowPage newWindow;
+    protected JavaScriptAlertsPage javaScriptAlertsPage;
+    protected NewWindowPage newWindowPage;
     protected WindowPage windowPage;
 
 
@@ -17,8 +17,8 @@ public class BaseStep {
         this.driver = driver;
         framesPage = new FramesPage(driver);
         iFramesPage = new IFramePage(driver);
-        javaScriptAlerts = new JavaScriptAlerts(driver);
-        newWindow = new NewWindowPage(driver);
+        javaScriptAlertsPage = new JavaScriptAlertsPage(driver);
+        newWindowPage = new NewWindowPage(driver);
         windowPage = new WindowPage(driver);
     }
 }
