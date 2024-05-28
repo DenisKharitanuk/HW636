@@ -15,10 +15,6 @@ public class FramesPage extends BasePage {
         super(driver);
     }
 
-    @Override
-    protected By getPageIdentifier() {
-        return iFrameLocator;
-    }
 
     @Override
     public void openPageByUrl() {

@@ -16,11 +16,6 @@ public class WindowPage extends BasePage {
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return clickHereButtonLocator;
-    }
-
-    @Override
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
@@ -28,7 +23,8 @@ public class WindowPage extends BasePage {
     public WebElement getClickHereButtonLocator() {
         return waitsService.waitForVisibilityLocatedBy(clickHereButtonLocator);
     }
-    public String getOriginalWindow(){
+
+    public String getOriginalWindow() {
         return originalWindow;
     }
 

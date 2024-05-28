@@ -16,11 +16,6 @@ public class IFramePage extends BasePage {
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return iFrameLocator ;
-    }
-
-    @Override
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }

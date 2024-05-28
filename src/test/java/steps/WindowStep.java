@@ -15,12 +15,12 @@ public class WindowStep extends BaseStep {
         super(driver);
     }
 
-    public void openWindow() {
+    public void openWindowPage() {
         windowPage.openPageByUrl();
     }
 
     public String openNewWindows() {
-        openWindow();
+        openWindowPage();
         windowPage.getClickHereButtonLocator().click();
         windowPage.setOriginalWindow(driver.getWindowHandle());
         Set<String> windowHandlesSet = driver.getWindowHandles();
@@ -29,9 +29,9 @@ public class WindowStep extends BaseStep {
         return newWindowPage.getPageMessageTextLocator().getText();
     }
 
-    public WebElement closeNewTabAndSwitchToOldTab(){
+    public WebElement closeNewTabAndSwitchToOldTab() {
         driver.close();
         driver.switchTo().window(windowPage.getOriginalWindow());
-        return windowPage.getClickHereButtonLocator() ;
+        return windowPage.getClickHereButtonLocator();
     }
 }

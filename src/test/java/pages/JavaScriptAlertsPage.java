@@ -19,11 +19,6 @@ public class JavaScriptAlertsPage extends BasePage {
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return clickForJSAlertButtonLocator;
-    }
-
-    @Override
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }

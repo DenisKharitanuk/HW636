@@ -13,12 +13,6 @@ public class NewWindowPage extends BasePage {
     public NewWindowPage(WebDriver driver) {
         super(driver);
     }
-
-    @Override
-    protected By getPageIdentifier() {
-        return null;
-    }
-
     @Override
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
