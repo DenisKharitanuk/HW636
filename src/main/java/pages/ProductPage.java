@@ -13,11 +13,6 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
-    @Override
-    protected By getPageIdentifier() {
-        return null;
-    }
-
     public WebElement getAddToBasketButtonLocator() {
         return driver.findElement(addToBasketButtonLocator);
     }

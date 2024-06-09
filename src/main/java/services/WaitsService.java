@@ -15,16 +15,24 @@ public class WaitsService {
     public WaitsService(WebDriver driver, Duration timeout) {
         wait = new WebDriverWait(driver, timeout);
     }
-    public WebElement waitToBeClickableByLocator(By locator){
-         return wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+    public WebElement waitToBeClickableByLocator(By locator) {
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-    public WebElement waitForExist(By locator){
+
+    public WebElement waitForExist(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
-    public WebElement waitForVisibilityBy(By locator){
+
+    public WebElement waitForVisibilityBy(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     public List<WebElement> waitForAllVisibleElementsLocatedBy(By locator) {
         return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
+
+    public List<WebElement> waitForAllForExistLocated(By locator) {
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 }

@@ -1,17 +1,27 @@
 package tests;
 
+
 import baseEntities.BaseTest;
 import org.junit.jupiter.api.Test;
+import pages.TopBarPage;
 
 public class HomePageTest extends BaseTest {
-    String searchProduct = "кандибобер";
+    String searchProduct = "Iphone 13";
+    String expectedText = "По запросу Iphone 13 найдено";
+    String filterName = "По популярности";
 
     @Test
-    public void searchChooseInBasketProduct() throws InterruptedException {
-        homeStep.search(searchProduct);
-        catalogStep.chooseProduct();
-        product.addProductToBasket();
-        product.openBasketPage();
-        basket.productIsExist();
+    public void forkWithSearchLineTest() {
+        new TopBarPage(driver)
+                .searchProduct(searchProduct)
+                .searchingResultsVerification(searchProduct)
+                .firstFilterVerification("")
+                .secondFilterVerification(filterName)
+                .firstProductCardLabelVerification("Apple");
+
+        new TopBarPage(driver).clearSearchLine().searchLineIsClean();
     }
+
+
+
 }
