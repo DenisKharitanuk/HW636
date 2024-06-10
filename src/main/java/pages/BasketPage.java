@@ -34,7 +34,7 @@ public class BasketPage extends BasePage {
     }
 
     private WebElement getProductPrice() {
-        return waitsService.waitForExist(productPriceCardLocator);
+        return waitsService.waitForVisibilityBy(productPriceCardLocator);
     }
 
     private WebElement getProductPriceWithWBWallet() {

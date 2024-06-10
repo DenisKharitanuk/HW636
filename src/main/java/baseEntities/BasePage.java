@@ -16,7 +16,6 @@ public abstract class BasePage {
         waitsService = new WaitsService(driver, Duration.ofSeconds(ReadProperties.timeout()));
     }
 
-//    public abstract void openPageByUrl();
     public void openPageByUrl(String pagePath) {
         driver.get(ReadProperties.getUrl() + pagePath);
     }

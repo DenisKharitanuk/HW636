@@ -10,9 +10,14 @@ public class BasketPageTest extends BaseTest {
     String secondItemInMenu = "Техника для дома";
     String thirdItemInMenu = "Пылесосы и пароочистители";
     String fourthItemInMenu = "Вертикальные пылесосы";
+    String color = "rgba(245, 81, 35, 1)";
+    String basketCounter = "1";
+    String price = "2 345 ₽";
+    String totalPrice = "2 345 ₽";
+    String productCardInfo = "Вертикальный ручной Пылесос для дома с контейнером, Deerma";
 
     @Test
-    public void addProductToBasketTest() {
+    public void addProductToBasketTest() throws InterruptedException {
         new TopBarPage(driver)
                 .clickOnjBurgerMenuButton()
                 .clickOnMainMenuByName(firstItemInMenu)
@@ -22,14 +27,14 @@ public class BasketPageTest extends BaseTest {
                 .pageIsOpened()
                 .catalogTitleVerification(fourthItemInMenu)
                 .breadcrumbsLinksVerification("Главная", firstItemInMenu,
-                        secondItemInMenu, thirdItemInMenu,fourthItemInMenu )
+                        secondItemInMenu, thirdItemInMenu, fourthItemInMenu)
                 .clickOnAddToBasketButton()
-                .basketNavbarNotifyBackgroundColorVerification("rgba(245, 81, 35, 1)")
-                .basketCounterNotification("1")
+                .basketNavbarNotifyBackgroundColorVerification(color)
+                .basketCounterNotification(basketCounter)
                 .clickOnBasketButton()
-                .productInfoVerification("Вертикальный ручной Пылесос для дома с контейнером, Deerma")
-                .productPricesVerification("2 345 ₽")
-                .totalPriceVerification("2 345 ₽")
+                .productInfoVerification(productCardInfo)
+                .productPricesVerification(price)
+                .totalPriceVerification(totalPrice)
                 .toOrderButtonIsClicable();
     }
 }

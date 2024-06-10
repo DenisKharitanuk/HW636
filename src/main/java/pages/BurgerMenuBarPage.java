@@ -23,11 +23,11 @@ public class BurgerMenuBarPage extends BasePage {
 
     //getters block
     private List<WebElement> getMainMenu() {
-        return waitsService.waitForAllForExistLocated(mainMenuLocator);
+        return waitsService.waitForAllVisibleElementsLocatedBy(mainMenuLocator);
     }
 
     private List<WebElement> getDropMenu() {
-        return waitsService.waitForAllForExistLocated(dropMenuLocator);
+        return waitsService.waitForAllVisibleElementsLocatedBy(dropMenuLocator);
     }
 
     //select locator block
@@ -52,7 +52,7 @@ public class BurgerMenuBarPage extends BasePage {
                 break;
             }
         }
-        return dropMenuElementByName;
+        return  dropMenuElementByName;
     }
 
 
@@ -66,7 +66,8 @@ public class BurgerMenuBarPage extends BasePage {
         selectDropMenuByMenuName(menuName).click();
         return this;
     }
-    public CatalogPage lastClickOnDropdownMenuAndGoToCatalogByName(String menuName){
+
+    public CatalogPage lastClickOnDropdownMenuAndGoToCatalogByName(String menuName) {
         selectDropMenuByMenuName(menuName).click();
         return new CatalogPage(driver);
     }

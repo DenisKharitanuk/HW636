@@ -6,11 +6,12 @@ import pages.MapPage;
 import pages.TopBarPage;
 
 public class MapPageTest extends BaseTest {
+    String address="Санкт-Петербург";
     @Test
     public void changeCity(){
         new TopBarPage(driver)
                 .clickOnAddressLocator()
-                .inputAddress("Санкт-Петербург")
+                .inputAddress(address)
                 .selectOnAddressByIndex(0)
                 .pickUpPointByIndexVerification(0)
                 .clickOnSelectButtonLocator()

@@ -19,15 +19,40 @@ public class CatalogPage extends BasePage {
     private By searchingResultsTitleLocator = By.className("searching-results__title");
     private By firstFilterLocator = By.xpath("//div/button[@class='dropdown-filter__btn dropdown-filter__btn--burger']");
     private By secondFilterLocator = By.xpath("//button[@class='dropdown-filter__btn dropdown-filter__btn--sorter']");
-
     private By catalogTitleLocator = By.className("catalog-title");
     private By breadcrumbsLinkLocator = By.xpath("//span[@itemprop='name']");
+    private By filterDropdownMenuButtonLocator = By.cssSelector(".dropdown-filter.j-show-all-filtres");
+    private By allFiltersCounterLocator = By.xpath("//div[@class='dropdown-filter j-show-all-filtres']/span");
+    private By productCounterLocator = By.xpath("//span[@data-link='html{spaceFormatted:pagerModel.totalItems}']");
+    private By productCardLocator = By.className("product-card__wrapper");
+    private By filtersChoiceListLocator = By.className("your-choice__btn");
+
 
     public CatalogPage(WebDriver driver) {
         super(driver);
     }
 
     //getters block
+    private List<WebElement> getFiltersChoice() {
+        return waitsService.waitForAllForExistLocated(filtersChoiceListLocator);
+    }
+
+    private List<WebElement> getProductCards() {
+        return waitsService.waitForAllForExistLocated(productCardLocator);
+    }
+
+    private WebElement getProductCounter() {
+        return waitsService.waitForExist(productCounterLocator);
+    }
+
+    private WebElement getFilterCounter() {
+        return waitsService.waitForExist(allFiltersCounterLocator);
+    }
+
+    private WebElement getFilterDropdownMenuButton() {
+        return waitsService.waitForExist(filterDropdownMenuButtonLocator);
+    }
+
     private WebElement getFirstProductInCatalog() {
         return waitsService.waitForVisibilityBy(firstProductInCatalogLocator);
     }
@@ -44,7 +69,6 @@ public class CatalogPage extends BasePage {
         return waitsService.waitForExist(secondFilterLocator);
     }
 
-
     private WebElement getFirstProductCardName() {
         return waitsService.waitForExist(firstProductCardNameLocator);
     }
@@ -54,7 +78,7 @@ public class CatalogPage extends BasePage {
     }
 
     private WebElement getFirstAddToBasketButton() {
-        return waitsService.waitToBeClickableByLocator(firstAddToBasketButtonLocator);
+        return waitsService.waitForVisibilityBy(firstAddToBasketButtonLocator);
     }
 
     private List<WebElement> getBreadcrumbsLinks() {
@@ -79,12 +103,22 @@ public class CatalogPage extends BasePage {
         return breadcrumbsLinksList.get(index);
     }
 
+    private WebElement selectFiltersChoiceLinksByIndex(int index) {
+        List<WebElement> filtersChoisesList = new ArrayList<>(getFiltersChoice());
+        return filtersChoisesList.get(index);
+    }
+
 
     //actions block
 
     public TopBarPage clickOnAddToBasketButton() {
         getFirstAddToBasketButton().click();
         return new TopBarPage(driver);
+    }
+
+    public FiltersPage clickOnFilterButton() {
+        getFilterDropdownMenuButton().click();
+        return new FiltersPage(driver);
     }
 
     //verifications block
@@ -124,6 +158,24 @@ public class CatalogPage extends BasePage {
         }
         return this;
     }
+
+    public CatalogPage filtersChoiceListVerification(String... filterArray) {
+        for (int i = 0; i < filterArray.length; i++) {
+            assertEquals(filterArray[i], selectFiltersChoiceLinksByIndex(i).getText());
+        }
+        return this;
+    }
+
+    public CatalogPage allFiltersCounterVerification(String counterValue) {
+        assertEquals(counterValue, getFilterCounter().getText());
+        return new CatalogPage(driver);
+    }
+
+    public CatalogPage productCounterVerification() {
+        assertEquals(getProductCounter().getText(), String.valueOf(getProductCards().size()));
+        return this;
+    }
+
 
     public CatalogPage pageIsOpened() {
         waitsService.waitForExist(catalogTitleLocator).isDisplayed();

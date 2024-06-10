@@ -15,7 +15,7 @@ public class TopBarPage extends BasePage {
     private By searchButtonLocator = By.id("applySearchBtn");
     private By clearButtonLocator = By.cssSelector(".search-catalog__btn.search-catalog__btn--clear");
     private By addressMenuLocator = By.cssSelector(".simple-menu__link.simple-menu__link--address");
-    private By jMenuBurgerButtonLocator = By.className("nav-element__burger");
+    private By jMenuBurgerButtonLocator = By.className("nav-element__burger-line");
     private By basketButtonLocator = By.cssSelector(".navbar-pc__icon.navbar-pc__icon--basket");
     private By basketNavbarNotifyLocator = By.xpath("//span[@class='navbar-pc__notify']");
 
@@ -50,7 +50,7 @@ public class TopBarPage extends BasePage {
     }
 
     private WebElement getJMenuBurgerButtonLocator() {
-        return waitsService.waitForExist(jMenuBurgerButtonLocator);
+        return waitsService.waitForVisibilityBy(jMenuBurgerButtonLocator);
     }
 
 
@@ -111,5 +111,4 @@ public class TopBarPage extends BasePage {
         assertEquals(number, getBasketButton().getText());
         return this;
     }
-
 }

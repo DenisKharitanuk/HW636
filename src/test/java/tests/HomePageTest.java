@@ -9,6 +9,7 @@ public class HomePageTest extends BaseTest {
     String searchProduct = "Iphone 13";
     String expectedText = "По запросу Iphone 13 найдено";
     String filterName = "По популярности";
+    String productLabelName="Apple";
 
     @Test
     public void forkWithSearchLineTest() {
@@ -17,11 +18,8 @@ public class HomePageTest extends BaseTest {
                 .searchingResultsVerification(searchProduct)
                 .firstFilterVerification("")
                 .secondFilterVerification(filterName)
-                .firstProductCardLabelVerification("Apple");
+                .firstProductCardLabelVerification(productLabelName);
 
         new TopBarPage(driver).clearSearchLine().searchLineIsClean();
     }
-
-
-
 }
